@@ -1,0 +1,258 @@
+---
+layout: default
+title: Your New Jekyll Site
+---
+
+
+<div class='jumbotron'>
+<h1>Erlang/OTP</h1>
+<h2>the open source Cluster System</h2>
+</div>
+
+<div class='row-fluid'>
+  <div class='col-md-4'>
+    <h4>What is a Cluster System?</h4>
+
+    <p>An <strong>Operating System (O/S)</strong> is a set of libraries that abstract your hardware and which mean that your <strong><em>unwritten</em></strong> software can:</p>
+          <ul>
+            <li>speak to persistent storage</li>
+            <li>speak to networks</li>
+            <li>speak to input/output devices</li>
+          </ul>
+    <p>...and so on...</p>
+    <p>Similarly a <strong>Cluster System (C/S)</strong> is a set of libraries that run across many computers (with different O/Ses) which means that your <strong><em>unwritten</em></strong> software can:</p>
+    <ul>
+      <li>scale horizontally
+        <li>failover when a computer goes down</li>
+        <li>have hardware replaced under it</li>
+    </ul>
+    <p>...comprende?</p>
+  </div>
+
+  <div class='col-md-4'>
+    <h4>Are There Other C/Ss?</h4>
+
+    <p>Yes, the best known one is the Google App Engine.</p>
+
+    <p>But, like in the early days of operating systems, most running C/S are in-house and custom-built in big companies like Facebook, Twitter etc.</p>
+
+    <p>Amazon provide a lot of components from which you can build your own proprietory C/S - things like AWS, S3, EBS, and many more.</p>
+
+    <p>Amazon's services are great, but there is a cost to buying in your core infrastructure</p>
+  </div>
+
+  <div class='col-md-4'>
+    <h4>Erlang, Erlang/OTP? Eh?</h4>
+
+    <p>Erlang is a programming language<p>
+
+    <p>You can use Erlang to programme an Erlang/OTP cluster.</p>
+
+    <p>It is perfectly possible to use Erlang on a single computer (a cluster-of-one).</p>
+
+    <p>There are other languages you can use to programme an Erlang/OTP cluster, like Elixir, LFE and Joxa, as well an stage experiment in enclustering browers - LuvvieScript.</p>
+  </div>
+</div>
+<div class='clearfix'></div>
+<div class='jumbotron'>
+<h1>Hey CEO! Hey CTO!</h1>
+<h2>all you need to know about Cluster Systems</h2>
+</div>
+<div class='row-fluid'>
+  <div class='col-md-4'>
+  <h4>Why Would I Use Erlang/OTP?</h4>
+
+  <p>If your business is going to run on computers then you will need to have a cluster system of some sort.</p>
+  <p>You can either pay people to write and maintain your Cluster System or you can use an open source battle-tested one like Erlang/OTP</p>
+  <p>In the next 5 years <strong>everyone</strong> will be using Cluster Systems - just like everyone uses Operating Systems</p>
+  </div>
+  <div class='col-md-4'>
+  <h4>What Are The Top 10 Reasons I Should Use Erlang/OTP?</h4>
+
+  <ul>
+    <li>Cost</li>
+    <li>Speed To Market</li>
+    <li>Availability And Reliability</li>
+    <li>Cost</li>
+    <li>Speed To Market</li>
+    <li>Availability And Reliability</li>
+    <li>Cost</li>
+    <li>Speed To Market</li>
+    <li>Availability And Reliability</li>
+    <li>Cost</li>
+  </ul>
+  </div>
+  <div class='col-md-4'>
+  <h4>How Do I Decide If I Should Use Erlang/OTP?</h4>
+
+  Diagram
+  </div>
+
+</div>
+<div class='clearfix'></div>
+<div class='row-fluid'>
+  <div class='col-md-4'>
+    <h4>How Hard Is It To Implement An Erlang/OTP Cluster?</h4>
+
+    <p>Its super easy to set up your first cluster - you should be able to do it in 5 minutes (once you have Erlang/OTP installed). Erlang/OTP runs on Linux, FreeBSD, most Unices, Mac OS/X and Windows.</p>
+    <p>install erlang and then open two terminals.</p>
+    <p>In terminal 1 type:</p>
+SOMETHING
+  </div>
+
+  <div class='col-md-4'>
+    <h4>How Hard Is It To Learn Erlang or Erlang/OTP?</h4>
+
+    <p>A lot of people get confused here. Erlang-the-language is very small and easy to master. Erlang/OTP-the-cluster-system is large. Remember when you first started learning Linux - all that stuff, networks, cron jobs, /dev, filesystem mounting /etc/init.d - all that stuff you need to master for O/S programming. The good news is that there isn't as much stuff to master to programme a C/S but there is still a lot...</p>
+
+    <p>The full Erlang/OTP documentation is here.</p>
+
+    <p>Hello world in Erlang is simple:</p>
+
+    EXAMPLE
+
+    Books
+  </div>
+  <div class='col-md-4'>
+    <h4>But I Think Erlang Is Too Prolog Like/Ugly To Use?</h4>
+
+    <p>Don't use it. If you like Ruby and Algol-like languages use Elixir. Bit of a Lisp buff you have a choice of LFE (Lisp-Flavoured Erlang) or Joxa.</p>
+
+    <p>Don't like any of these then write your own! The Erlang/OTP ecosystem has a hidden gem, a high-level language called Core Erlang which is human readable/writeable. It is simplified from Erlang (which makes it verbose and unwieldy to write by hand) but is simple and regular which makes it a breeze to generate. It is specifically designed for iterative compiler writing where you can compile your language into Core Erlang and get the compile-to-beam-and-deploy stuff for free making it by far the easiest way to develop your own C/S language. (The only other way is to get hired by Google to work on theirs...) Twitter accounts</p>
+  </div>
+  <div class='col-md-4'>
+  <h4>What Is This Site?</h4>
+
+  <p>This is a community site about Erlang/OTP and all the programming languages you can use to programme your Erlang/OTP cluster.</p>
+  </div>
+</div>
+<div class='clearfix'></div>
+<div class='row-fluid'>
+
+  <div class='col-md-4'>
+    <h4>What are the pitfalls in switching to Erlang/OTP?</h4>
+
+    <p>The biggest pitfall is thinking that it is 'just another programming language' when the real challenge is to change your operations.</p>
+
+    <p>Failure to grasp the fact that Erlang/OTP is a C/S leads to teams adding to their operational cost (but not reducing operational support) or reimplementing their own hybrid Erlang/OTP C/S because that's what they would do if they were using an O/S language like Ruby or Java.</p>
+    </div>
+
+  <div class='col-md-4'>
+    <h4>I've Heard Erlang Is Wierd?</h4>
+
+    <p>Well, it depends. If you are used to Algol-style languages (like most programmers) it is weird. It feels like the difference between reading a book and reading an opticians chart. Here are some of the weird bits.</p>
+
+    <p>Sometimes <code>=</code> means let this thing equal that thing and sometimes it means check that this thing equals that thing, and sometimes it means both.
+      <pre>
+        A = 1,      % A doesnt have a value (it is unbound) so let A = 1
+        A = 2,       % A does have a value (it is bound to 1) so check A = 1 or throw error
+        </pre>
+
+    <p>These two meanings can be combined into one equals sign:</p>
+    <pre>
+      A = 1,               % let A = 1 it is unbound
+      {A, B} = {1, 2}   % check that A = 1 and also let B = 2
+      </pre>
+    <p>This is the basis of pattern matching - which is a key weird and adictive thing. You might know it from CoffeeScript where it is called destructuring.</p>
+
+    <p>Erlang loves case statements. There are 5 ways to write case statements and you can merge some of them.</p>
+
+    <p>Case</p>
+    <pre>
+    case X of
+      1 -> do something();
+      2 -> do somethingelse();
+      _ -> ok
+    end,</pre>
+
+    <p>if</p>
+
+    <pre>
+    if
+      X = 1                   -> dosomething();
+      X = 2                   -> dosomethingelse();
+      X =/= 1 andalso X =/= 2 -> ok
+   end,
+    </pre>
+
+    <p>The multihead function (what strange hydra-like beast is this) with pattern matching:</p>
+    <pre>
+      chose(1) -> dosomething();
+      chose(2) -> dosomethingelse();
+      chose(_) -> ok.
+      </pre>
+
+    <p>The variable <code>_</code> means I don't care about the value</p>
+
+    <p>Or the same multihead function with guards:</p>
+    <pre>
+      chose(X) when X == 1 -> dosomething();
+      chose(X) when X == 2 -> dosomethingelse();
+      chose(_)             -> ok.
+      </pre>
+    <p>The pattern match can be considered a case of 1</p>
+    <pre>
+      X = 1
+      </pre>
+    <p>If X is 1 then continue else throw an error 'X isn't 1'<p>
+
+      <p>There is no for operator and no loops. You use recursion.</p>
+      <pre>
+      for (i; i < N; i++) {
+                  do something();
+      }
+      </pre>
+
+      <p>would be written as</p>
+      <pre>
+        do_fun(0) ->
+          ok;
+        do_fun(N) when is_integer(N) ->
+          do_something()
+          do_fun(N - 1).
+          </pre>
+
+      <p>The function calls itself and counts down from N to 0</p>
+
+      <p>People also freak out about the , ; . stuff but that is easy, they just mean AND OR and END</p>
+      <pre>
+        A = 1,
+        B = 2,
+        case {A, B} of
+          {1, 2} -> dosomething();
+          {2, 2} -> dosomethingelse()
+       end,
+      {A, B}.
+        </pre>
+
+    <p>You can read this as:</p>
+    <pre>
+      A = 1 AND
+      B = 2 AND
+      case {A, B} of
+        {1, 2} -> dosomething() OR
+        {2, 2} -> dosomethingelse()
+      end,
+      RETURN {A, B} END
+      </pre>
+
+    <p>And freaky list comprenensions look like an ascii art dance of</p>
+    <pre>
+      L = [1, 2, 3]
+      [X * 2 || X <- L]
+      </pre>
+    <p>This means take the list <code>L</code> get all the variables <code>X</code> in that list and multiply them by two. This returns:</p>
+    <pre>
+      [2, 4, 6]
+  </pre>
+  </div>
+</div>
+
+<div id="home">
+  <h1>Blog Posts</h1>
+  <ul class="posts">
+    {% for post in site.posts %}
+      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+</div>
