@@ -3,12 +3,12 @@ layout: default
 title: Erlang/OTP - the open source Cluster System
 ---
 
-
+<header>
 <div class='jumbotron'>
 <h1>Erlang/OTP</h1>
 <h2>the open source Cluster System - the <strong>fastest</strong>, <strong>cheapest</strong> way to build <strong>reliable</strong> clusters of computers</h2>
 </div>
-
+</header>
 <div class='row-fluid'>
   <div class='col-md-4'>
     <h4 class='text-center'>What is a Cluster System?</h4>
@@ -40,6 +40,39 @@ title: Erlang/OTP - the open source Cluster System
   </div>
 </div>
 <div class='clearfix'></div>
+<div class='jumbotron'>
+<h1>But Nobody Uses Erlang/OTP Anyway...</h1>
+<h2>(apart from these companies, obviously)</h2>
+</div>
+<div class='row-fluid'>
+  <div class='col-md-1 text-center'>
+    <img src='http://whatsappcdn.appspot.com/img/v2/logo-whatsapp.png' />
+  </div>
+  <div class='col-md-1'>
+  </div>
+  <div class='col-md-1'>
+  </div>
+  <div class='col-md-1'>
+  </div>
+  <div class='col-md-1'>
+  </div>
+  <div class='col-md-1'>
+  </div>
+  <div class='col-md-1'>
+  </div>
+  <div class='col-md-1'>
+  </div>
+  <div class='col-md-1'>
+  </div>
+  <div class='col-md-1'>
+  </div>
+  <div class='col-md-1'>
+  </div>
+  <div class='col-md-1'>
+  </div>
+</div>
+<div class='clearfix'></div>
+<p></p>
 <div class='jumbotron'>
 <h1>Hey CEO! Hey CTO!</h1>
 <h2>all you need to know about Cluster Systems</h2>
@@ -85,51 +118,233 @@ title: Erlang/OTP - the open source Cluster System
     <p>Its super easy to set up your first cluster - you should be able to do it in 5 minutes (once you have <a href='http://www.erlang.org/download.html'>Erlang/OTP</a> installed). Erlang/OTP runs on Linux, FreeBSD, most Unices, Mac OS/X and Windows.</p>
     <p>We will install erlang and then open two terminals.</p>
     <p>In terminal 1 type:</p>
-    <pre>erl -sname alice -smp</pre>
+    <pre>
+erl -sname alice -smp</pre>
     <p>An erlang VM will start with a running shell and command line, which looks like:</p>
     <pre>
 Erlang R16B01 (erts-5.10.2) [source] [smp:1:1] [async-threads:10] [hipe] [kernel-poll:false]
 Eshell V5.10.2  (abort with ^G)
-(alice@erlang-wtd)1>
-    </pre>
+(alice@yourcomputer)1></pre>
     <p>You know have node <code>alice</code> running. Now type <code>observer:start().</code> into the console. A system console will start like so:</p>
-    <img class='img-responsibe' src='/assets/img/observer.png' alt='Erlang/OTP Observer' />
-    <p>you wilLets start <code>bob</code>. In terminal 2 type:</p>
-    <pre>erl -sname bob -smp</p>
+    <div><img class='img-responsive' src='/assets/img/observer.png' alt='Erlang/OTP Observer' /></div>
+    <p>Lets start <code>bob</code>. In terminal 2 type:</p>
+    <pre>
+erl -sname bob -smp</pre>
+  <p>Erlang VM's admit other VM's to their cluster if they share a common cookie. You need to check that <code>alice@yourcomputer</code> and <code>bob@yourcomputer</code> have the same cookie with the command <code>erlang:get_cookie().</code> If they do then you can join them into a cluster by running <code>net_adm:ping('bob@yourcomputer').</code> into <code>alice@yourcomputer</code>. If you type <code>nodes().</code> into one console you should see the other VM's name.<p>
+  <p>If you need to sync the cookies use <code>erlang:set_cookie(node(), somecookie).</code> - cookies that don't start with a lowercase letter needed to single quoted.</p>
+  <p>See, told you it was easy. You can put your hat away now, I'm not going to eat it, am I?
   </div>
   <div class='col-md-4'>
-
-    soemthing, seomthing
+    <h4 class='text-center'>Exploring Your Cluster</h4>
+    <p>Poke around the Observer and see what you can see.</p>
+    <p>Different panels show you different things that look vaguely familiar from operating systems, process lists, memory allocation, applications, but also strange stuff like tracing.<p>
+      <p>By using the <code>node</code> menu you can point the observer to a different VM in the node.</p>
+      <p>This is all the familiar/unfamiliar stuff you need to fold into your operations team. Erlang/OTP supports SNMP alerting and a host of other stuff to integrate it into your ops support world.
+      <h4 class='text-center'>Processes, Processes, Processes</h4>
+      <p>The process tab in the observer shows all the running processes in the VM.</p>
+    <p>It is the Erlang/OTP version of Unix's <code>ps aux</code> command.</p>
+    <p>Whereas in Unix each process Id (PID) is a single numeric value all the Erlang/OTP PID's are these stange three-parters &lt;0.50.0&gt;. The three parts describe which:</p>
+    <ul>
+      <li>process it is on its home node</li>
+      <li>VM it is on its home machine</li>
+      <li>machine it is in the cluster</li>
+      </ul>
+    <p>Applications in Erlang-the-language works by processes sending each other messages - and that ultimately depends on knowing each other PID's.</p>
+    <p>An Erlang processes doesn't distinguish between a process on its VM, or one on another member of the cluster. This <em>network transparency</em> is the rock on which Erlang/OTP is built.</p>
+    <h4 class=text-center'>Operational Debugging</h4>
+    <p>Have a squint at the trace panel. Erlang/OTP has the built in ability to trace a message between one process and another - across the cluster.</p>
+      <p>Trace matches can be applied to process and function calls to trigger a trace process. You can trace messages which are sent, which trigger other messages and the spawning of new processes.</p>
+      <p>The consequence of this is that you have powerful built in tools inside your C/S which enable you to address the most intractable problems.</p>
 </div>
 </div>
+<div class='clearfix'></div>
+<div class='jumbotron'>
+  <h1>But I Heard Its Too Freaky-Weird!</h1>
+  <h2>well you heard wrong buster...</h2>
 </div>
+<div class='row-fluid'>
+<a id='here'></a>
+  <div class='col-md-8'>
 
+    <h4>Lets Start With Hello World, Shall We?</h4>
 
-    <h4 class='text-center'>How Hard Is It To Learn Erlang or Erlang/OTP?</h4>
+    <p>A lot of people get confused here. Erlang-the-language is very small and easy to master. Erlang/OTP-the-cluster-system is large. Remember when you first started learning Linux - all that stuff, networks, cron jobs, <code>/dev</code>, filesystem mounting <code>/etc/init.d</code> - all that stuff you need to master for O/S programming?</p>
+    <p>The good news is that there isn't as much stuff to master to programme a C/S but there is still a lot...</p>
 
-    <p>A lot of people get confused here. Erlang-the-language is very small and easy to master. Erlang/OTP-the-cluster-system is large. Remember when you first started learning Linux - all that stuff, networks, cron jobs, /dev, filesystem mounting /etc/init.d - all that stuff you need to master for O/S programming. The good news is that there isn't as much stuff to master to programme a C/S but there is still a lot...</p>
-
-    <p>The full Erlang/OTP documentation is here.</p>
+    <p>Don't believe me?, well here's the full <a href='http://www.erlang.org/doc.html'>Erlang/OTP documentation</a>.</p>
 
     <p>Hello world in Erlang is simple:</p>
+    <pre>
+#!/usr/bin/env escript
 
-    EXAMPLE
+main(_Args) ->
+    io:format("Hello World!~n").</pre>
 
-    Books
+    <h4>But Erlang Is Wierd, Right?</h4>
+
+    <p><em>Whisper it not in Gath</em>, but it is a bit weird: if you don't know Prolog (and who does these days?). If you are used to Algol-style languages (like most programmers) its a bit scary. It feels like the difference between reading a book and reading an opticians chart. Here are some of the stranger bits.</p>
+
+    <h4>overloaded <code>=</code> and variables which don't vary</h4
+
+    <p>Sometimes <code>=</code> means <kbd>let this thing equal that thing</kbd> and sometimes it means <kbd>check that this thing equals that thing</kbd>, and sometimes it means both.
+      <pre>
+A = 1, % A doesnt have a value (it is unbound) so let A = 1
+A = 2, % A does have a value (it is bound to 1) so confirm A = 1 or throw error</pre>
+
+    <p>These two meanings can be combined into one equals sign:</p>
+    <pre>
+A = 1,          % let A = 1 it is unbound
+{A, B} = {1, 2} % check that A = 1 and also let B = 2</pre>
+    <p>This is the basis of pattern matching - which is a key weird and adictive thing. You might know it from CoffeeScript where it is called destructuring.</p>
+
+    <h4>the strange case of <code>case</code></h4>
+
+    <p>Erlang loves case statements. There are 5 ways to write case statements and you can merge some of them.</p>
+
+    <pre>
+case X of
+   1 -> do something();
+   2 -> do somethingelse();
+   _ -> ok
+end,</pre>
+
+    <h4>if</h4>
+
+    <pre>
+if
+  X = 1                   -> dosomething();
+  X = 2                   -> dosomethingelse();
+  X =/= 1 andalso X =/= 2 -> ok
+end,</pre>
+
+    <h4>multi-headed function hydras</h4>
+
+    <p>The multiheaded function (what a strange beast is this) with pattern matching:</p>
+    <pre>
+chose(1) -> dosomething();
+chose(2) -> dosomethingelse();
+chose(_) -> ok.</pre>
+
+    <p>The variable <code>_</code> means I don't care about the value</p>
+
+    <p>Or the same multihead function with guards:</p>
+    <pre>
+chose(X) when X == 1 -> dosomething();
+chose(X) when X == 2 -> dosomethingelse();
+chose(_)             -> ok.</pre>
+
+    <p>You can also consider a pattern-match as a case-statement with one clause:
+<pre>X = 1,</pre>
+
+<p>means</p>
+<pre>
+If X is 1
+   then continue
+   else throw an error 'X isn't 1'</pre>
+
+  <h4>whats <code>for</code> for anyway?</h4
+
+      <p>There is no <code>for</code> operator and no loops. You use recursion.</p>
+      <p>You are probably used to seeing constructs like this in other languages:</p>
+      <pre>
+for (i; i < N; i++) {
+       do_something();
+}</pre>
+
+      <p>In Erlang this would be written as:</p>
+      <pre>
+do_fun(0) ->
+   ok;
+do_fun(N) when is_integer(N) ->
+   do_something()
+   do_fun(N - 1).</pre>
+
+      <p>The function calls itself and counts down from N to 0</p>
+
+      <p>People also freak out about the <code>, ; .</code> stuff but that is easy, they just mean AND OR and END</p>
+      <pre>
+A = 1,
+B = 2,
+   case {A, B} of
+      {1, 2} -> dosomething();
+      {2, 2} -> dosomethingelse()
+   end,
+{A, B}.</pre>
+
+    <p>You can read this as:</p>
+    <pre>
+A = 1 AND
+B = 2 AND
+   case {A, B} of
+      {1, 2} -> dosomething() OR
+      {2, 2} -> dosomethingelse()
+  end,
+RETURN {A, B} END</pre>
+
+    <p>And freaky list comprenensions look like an ascii art dance of death:</p>
+    <pre>
+L = [1, 2, 3]
+[X * 2 || X <- L]</pre>
+    <p>This means take the list <code>L</code> get all the variables <code>X</code> in that list and multiply them by two. This returns:</p>
+    <pre>
+[2, 4, 6]</pre>
+    <p>Muslims say that all human things are flawed, and only God is perfect. The great Muslim caligraphers would make a deliberate mistake in their work so God wouldn't think them too proud. Getting the final semicolon wrong in Erlang (which we all do) is the Erlang developer's acknowlegement of their own human frailty.</p>
+    <p>That's all the weirdness, perfectly surmountable by a software developer of your calibre (schmooze, schmooze...)</p>
   </div>
+  <div class='col-md-4'>
+<h3 class='text-center'>That Syntax Still Too Freaky For Ya?</h3>
+<h4 class='text-center'>We got plenty others</h4>
+<p>Seriously Erlang is not the only language you can programme your C/S with. There are loads of others</p>
+    <h4 class='text-center'>Need Yourself Something Ruby-Like? Try Elixir</h4>
+    <p><a href='http://elixir-lang.org'>Elixir</a> has been developed by one of the core rails team, and it shows...</p>
+    <pre>
+defmodule Hello do
+  IO.puts "Defining the function world"
 
-    <h4 class='text-center'>But I Think Erlang Is Too Prolog Like/Ugly To Use?</h4>
+  def world do
+    IO.puts "Hello World"
+  end
 
-    <p>Don't use it. If you like Ruby and Algol-like languages use Elixir. Bit of a Lisp buff you have a choice of LFE (Lisp-Flavoured Erlang) or Joxa.</p>
+  IO.puts "Function world defined"
+end</pre>
+<p>Run <code>Hello.world</code> and you will get the output:</p>
+<pre>
+Defining the function world
+Function world defined
+Hello World
+</pre>
 
-    <p>Don't like any of these then write your own! The Erlang/OTP ecosystem has a hidden gem, a high-level language called Core Erlang which is human readable/writeable. It is simplified from Erlang (which makes it verbose and unwieldy to write by hand) but is simple and regular which makes it a breeze to generate. It is specifically designed for iterative compiler writing where you can compile your language into Core Erlang and get the compile-to-beam-and-deploy stuff for free making it by far the easiest way to develop your own C/S language. (The only other way is to get hired by Google to work on theirs...) Twitter accounts</p>
+   <h4 class='text-center'>Lisp more to your taste? Try Joxa</h4>
+   <p><a href='http://joxa.org'>Joxa</a> is a crisp Lisp...</p><pre>
+joxa-shell> (defn foo () :hello)
+ok
+joxa-shell> (foo)
+hello
+joxa-shell></pre>
+    <h4 class='text-center'>And There's More...</h4>
+    <p>For a very traditional Lisp try <a href='http://lfe.github.io'>LFE</a> (Lisp-Flavoured Erlang) by one of the inventors of Erlang. You want traditional Scheme, <a href='http://the-concurrent-schemer.github.io/scm-doc'>we got it</a> or you like Lua scripting, <a href='https://github.com/rvirding/luerl'>good to go</a>. Perhaps you are even one of those freaks who thinks Erlang is not-prolog-y enough, well here's prolog, <a href='https://github.com/rvirding/erlog'>step right up</a>.</p>
+    <h4 class='text-center'>But Some People Are Never Satisifed</h4>
+    <p><kbd>&lt;-- Insert Your Name Here --&gt;</kbd> has written their own language <kbd>&lt;-- Your Cool 4 Letter Domain--&gt;</kbd> inspired by <kbd>&lt;--What Tickles Your Fancy--&gt;</kbd>.</p>
+<p>Erlang has a hidden gem called <a href='http://www.it.uu.se/research/group/hipe/cerl/'>Core Erlang</a> which is a verbose but very simple human-readable language - designed for humans to read (but not optimised for them to write).</p>
+<p>It is also designed to make it super-easy to write your own compile-to-Core-Erlang-source language - and paticularly to iterate on the design.</p>
+<p><kbd>&lt;-- Insert Your Name Here --&gt;</kbd> used it to develop and prototype their <kbd><-- Whatever Tickles Your Fancy --></kbd>-flavoured <kbd>&lt;-- Your Cool 4 Letter Domain--&gt;</kbd> language giving it all the goodness of Erlang/OTP.</p>
+<div style='border:dashed;border-color:red;padding:20px;'>
+  <small>
+  <h4 class='text-center'>Break Glass For Emergency Tweet</h4>
+  <core>Dear @rvirding @rich_4711 @josevalim @gordonguthrie @ericbmerrit I am writing <kbd>&lt;-- Your Cool 4 Letter Domain --&gt;</kbd> an Erlang/OTP C/S language. Help!</core>
+  </small>
+</div>
+<h4 class='text-center'>You Like Your Steak Bloodier Still?</h4>
+    <p style='color:red'>Erlang has a concept called <code>C-node</code>'s where things like special hardware, the Emacs editor, or Unicode libraries written in C can be exposed as junior members of the cluster</p>
+   <p>You can just send and receive messages from <code>C-node</code>'s.</p>
+   <p>The bleeding-edge <a href='http://luvv.ie'>LuvvieScript</a> Project is trying to wrap the browser as a <code>C-node</code> so the server-side components of a cluster and can just transparently send and receive messages</p>
+    <p>All the <emphasis>failure handling</emphasis> (ie my phone signal has died) will be managed in the background.</p>
+    </p>It also wants to wrap the DOM as a <code>C-node</code> so the front-end programmer will be abstracted from the browser.</p>
+    <p>Thanks to the miracle of <a href='http://www.it.uu.se/research/group/hipe/cerl/'>Core Erlang</a>, when it works for normal Erlang it will work for <a href='http://elixir-lang.org/'>Elixir</a>, <a href='http://lfe.github.io/'>LFE</a>, <a href='http://joxa.org/'>Joxa</a> and <kbd>&lt;-- Your Cool 4 Letter Domain--&gt;</kbd> as well.</p>
+    <p>That steak's still a-mooing, yeah-hargh!</p>
   </div>
-
-  <h4 class='text-center'>What Is This Site?</h4>
-
-  <p>This is a community site about Erlang/OTP and all the programming languages you can use to programme your Erlang/OTP cluster.</p>
-  </div>
-
+</div>
+</div>
     <h4 class='text-center'>What are the pitfalls in switching to Erlang/OTP?</h4>
 
     <p>The biggest pitfall is thinking that it is 'just another programming language' when the real challenge is to change your operations.</p>
@@ -137,114 +352,6 @@ Eshell V5.10.2  (abort with ^G)
     <p>Failure to grasp the fact that Erlang/OTP is a C/S leads to teams adding to their operational cost (but not reducing operational support) or reimplementing their own hybrid Erlang/OTP C/S because that's what they would do if they were using an O/S language like Ruby or Java.</p>
     </div>
 
-    <h4 class='text-center'>I've Heard Erlang Is Wierd?</h4>
-
-    <p>Well, it depends. If you are used to Algol-style languages (like most programmers) it is weird. It feels like the difference between reading a book and reading an opticians chart. Here are some of the weird bits.</p>
-
-    <p>Sometimes <code>=</code> means let this thing equal that thing and sometimes it means check that this thing equals that thing, and sometimes it means both.
-      <pre>
-        A = 1,      % A doesnt have a value (it is unbound) so let A = 1
-        A = 2,       % A does have a value (it is bound to 1) so check A = 1 or throw error
-        </pre>
-
-    <p>These two meanings can be combined into one equals sign:</p>
-    <pre>
-      A = 1,               % let A = 1 it is unbound
-      {A, B} = {1, 2}   % check that A = 1 and also let B = 2
-      </pre>
-    <p>This is the basis of pattern matching - which is a key weird and adictive thing. You might know it from CoffeeScript where it is called destructuring.</p>
-
-    <p>Erlang loves case statements. There are 5 ways to write case statements and you can merge some of them.</p>
-
-    <p>Case</p>
-    <pre>
-    case X of
-      1 -> do something();
-      2 -> do somethingelse();
-      _ -> ok
-    end,</pre>
-
-    <p>if</p>
-
-    <pre>
-    if
-      X = 1                   -> dosomething();
-      X = 2                   -> dosomethingelse();
-      X =/= 1 andalso X =/= 2 -> ok
-   end,
-    </pre>
-
-    <p>The multihead function (what strange hydra-like beast is this) with pattern matching:</p>
-    <pre>
-      chose(1) -> dosomething();
-      chose(2) -> dosomethingelse();
-      chose(_) -> ok.
-      </pre>
-
-    <p>The variable <code>_</code> means I don't care about the value</p>
-
-    <p>Or the same multihead function with guards:</p>
-    <pre>
-      chose(X) when X == 1 -> dosomething();
-      chose(X) when X == 2 -> dosomethingelse();
-      chose(_)             -> ok.
-      </pre>
-    <p>The pattern match can be considered a case of 1</p>
-    <pre>
-      X = 1
-      </pre>
-    <p>If X is 1 then continue else throw an error 'X isn't 1'<p>
-
-      <p>There is no for operator and no loops. You use recursion.</p>
-      <pre>
-      for (i; i < N; i++) {
-                  do something();
-      }
-      </pre>
-
-      <p>would be written as</p>
-      <pre>
-        do_fun(0) ->
-          ok;
-        do_fun(N) when is_integer(N) ->
-          do_something()
-          do_fun(N - 1).
-          </pre>
-
-      <p>The function calls itself and counts down from N to 0</p>
-
-      <p>People also freak out about the , ; . stuff but that is easy, they just mean AND OR and END</p>
-      <pre>
-        A = 1,
-        B = 2,
-        case {A, B} of
-          {1, 2} -> dosomething();
-          {2, 2} -> dosomethingelse()
-       end,
-      {A, B}.
-        </pre>
-
-    <p>You can read this as:</p>
-    <pre>
-      A = 1 AND
-      B = 2 AND
-      case {A, B} of
-        {1, 2} -> dosomething() OR
-        {2, 2} -> dosomethingelse()
-      end,
-      RETURN {A, B} END
-      </pre>
-
-    <p>And freaky list comprenensions look like an ascii art dance of</p>
-    <pre>
-      L = [1, 2, 3]
-      [X * 2 || X <- L]
-      </pre>
-    <p>This means take the list <code>L</code> get all the variables <code>X</code> in that list and multiply them by two. This returns:</p>
-    <pre>
-      [2, 4, 6]
-  </pre>
-  </div>
 </div>
 
 <div id="home">
