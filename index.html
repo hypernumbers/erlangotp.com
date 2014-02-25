@@ -9,7 +9,7 @@ title: Erlang/OTP - the open source Cluster System
 <h2>the open source Cluster System - the <strong>fastest</strong>, <strong>cheapest</strong> way to build <strong>reliable</strong> clusters of computers</h2>
 </div>
 </header>
-<div class='row-fluid'>
+<div class='row-fluid1'>
   <div class='col-md-4'>
     <h4 class='text-center'>What is a Cluster System?</h4>
 
@@ -45,30 +45,23 @@ title: Erlang/OTP - the open source Cluster System
 <h2>(apart from these companies, obviously)</h2>
 </div>
 <div class='row-fluid'>
-  <div class='col-md-1 text-center'>
-    <img src='http://whatsappcdn.appspot.com/img/v2/logo-whatsapp.png' />
+  <div class='col-md-2 text-center'>
+    <img class='img-responsive' src='/assets/img/amazon.jpg' />
   </div>
-  <div class='col-md-1'>
+  <div class='col-md-2'>
+    <img class='img-responsive' src='/assets/img/couchdb.jpg' />
   </div>
-  <div class='col-md-1'>
+  <div class='col-md-2'>
+    <img class='img-responsive' src='/assets/img/ericsson.jpg' />
   </div>
-  <div class='col-md-1'>
+  <div class='col-md-2'>
+    <img class='img-responsive' src='/assets/img/heroku.jpg' />
   </div>
-  <div class='col-md-1'>
+  <div class='col-md-2'>
+    <img class='img-responsive' src='/assets/img/klarna.jpg' />
   </div>
-  <div class='col-md-1'>
-  </div>
-  <div class='col-md-1'>
-  </div>
-  <div class='col-md-1'>
-  </div>
-  <div class='col-md-1'>
-  </div>
-  <div class='col-md-1'>
-  </div>
-  <div class='col-md-1'>
-  </div>
-  <div class='col-md-1'>
+  <div class='col-md-2'>
+    <img class='img-responsive' src='/assets/img/whatsapp.jpg' />
   </div>
 </div>
 <div class='clearfix'></div>
@@ -157,6 +150,38 @@ erl -sname bob -smp</pre>
       <p>The consequence of this is that you have powerful built in tools inside your C/S which enable you to address the most intractable problems.</p>
 </div>
 </div>
+
+<div class='clearfix'></div>
+<div class='row-fluid'>
+  <div class='col-md-3'>
+    <img class='img-responsive' src='/assets/img/programmingerlang.jpg' />
+  </div>
+  <div class='col-md-3'>
+    <img class='img-responsive' src='/assets/img/erlangprogramming.jpg' />
+  </div>
+  <div class='col-md-3'>
+    <img class='img-responsive' src='/assets/img/introducingerlang.jpg' />
+  </div>
+  <div class='col-md-3'>
+    <img class='img-responsive' src='/assets/img/programmingelixir.jpg' />
+  </div>
+</div>
+<div class='clearfix'></div>
+<div class='row-fluid'>
+  <div class='col-md-3'>
+    <img class='img-responsive' src='/assets/img/introducingelixir.jpg' />
+  </div>
+  <div class='col-md-3'>
+    <img class='img-responsive' src='/assets/img/learnyousomeerlangforgreatgood.jpg' />
+  </div>
+  <div class='col-md-3'>
+    <img class='img-responsive' src='/assets/img/erlangandotpinaction.jpg' />
+  </div>
+  <div class='col-md-3'>
+    <img class='img-responsive' src='/assets/img/buildingapplicationswitherlang.jpg' />
+  </div>
+</div>
+
 <div class='clearfix'></div>
 <div class='jumbotron'>
   <h1>But I Heard Its Too Freaky-Weird!</h1>
@@ -324,10 +349,10 @@ joxa-shell></pre>
     <h4 class='text-center'>And There's More...</h4>
     <p>For a very traditional Lisp try <a href='http://lfe.github.io'>LFE</a> (Lisp-Flavoured Erlang) by one of the inventors of Erlang. You want traditional Scheme, <a href='http://the-concurrent-schemer.github.io/scm-doc'>we got it</a> or you like Lua scripting, <a href='https://github.com/rvirding/luerl'>good to go</a>. Perhaps you are even one of those freaks who thinks Erlang is not-prolog-y enough, well here's prolog, <a href='https://github.com/rvirding/erlog'>step right up</a>.</p>
     <h4 class='text-center'>But Some People Are Never Satisifed</h4>
-    <p><kbd>&lt;-- Insert Your Name Here --&gt;</kbd> has written their own language <kbd>&lt;-- Your Cool 4 Letter Domain--&gt;</kbd> inspired by <kbd>&lt;--What Tickles Your Fancy--&gt;</kbd>.</p>
+    <p><kbd>&lt;-- Insert Your Name Here --&gt;</kbd> has written their own language <kbd>&lt;-- Your Cool 4 Letter Domain --&gt;</kbd> inspired by <kbd>&lt;-- What Tickles Your Fancy--&gt;</kbd>.</p>
 <p>Erlang has a hidden gem called <a href='http://www.it.uu.se/research/group/hipe/cerl/'>Core Erlang</a> which is a verbose but very simple human-readable language - designed for humans to read (but not optimised for them to write).</p>
 <p>It is also designed to make it super-easy to write your own compile-to-Core-Erlang-source language - and paticularly to iterate on the design.</p>
-<p><kbd>&lt;-- Insert Your Name Here --&gt;</kbd> used it to develop and prototype their <kbd><-- Whatever Tickles Your Fancy --></kbd>-flavoured <kbd>&lt;-- Your Cool 4 Letter Domain--&gt;</kbd> language giving it all the goodness of Erlang/OTP.</p>
+<p><kbd>&lt;-- Insert Your Name Here --&gt;</kbd> used Core Erlang to develop and prototype their <kbd><-- Whatever Tickles Your Fancy --></kbd>-flavoured <kbd>&lt;-- Your Cool 4 Letter Domain-- &gt;</kbd> language giving it all the goodness of Erlang/OTP.</p>
 <div style='border:dashed;border-color:red;padding:20px;'>
   <small>
   <h4 class='text-center'>Break Glass For Emergency Tweet</h4>
@@ -340,20 +365,10 @@ joxa-shell></pre>
    <p>The bleeding-edge <a href='http://luvv.ie'>LuvvieScript</a> Project is trying to wrap the browser as a <code>C-node</code> so the server-side components of a cluster and can just transparently send and receive messages</p>
     <p>All the <emphasis>failure handling</emphasis> (ie my phone signal has died) will be managed in the background.</p>
     </p>It also wants to wrap the DOM as a <code>C-node</code> so the front-end programmer will be abstracted from the browser.</p>
-    <p>Thanks to the miracle of <a href='http://www.it.uu.se/research/group/hipe/cerl/'>Core Erlang</a>, when it works for normal Erlang it will work for <a href='http://elixir-lang.org/'>Elixir</a>, <a href='http://lfe.github.io/'>LFE</a>, <a href='http://joxa.org/'>Joxa</a> and <kbd>&lt;-- Your Cool 4 Letter Domain--&gt;</kbd> as well.</p>
+    <p>Thanks to the miracle of <a href='http://www.it.uu.se/research/group/hipe/cerl/'>Core Erlang</a>, when it works for normal Erlang it will work for <a href='http://elixir-lang.org/'>Elixir</a>, <a href='http://lfe.github.io/'>LFE</a>, <a href='http://joxa.org/'>Joxa</a> and <kbd>&lt;-- Your Cool 4 Letter Domain --&gt;</kbd> as well.</p>
     <p>That steak's still a-mooing, yeah-hargh!</p>
   </div>
 </div>
-</div>
-    <h4 class='text-center'>What are the pitfalls in switching to Erlang/OTP?</h4>
-
-    <p>The biggest pitfall is thinking that it is 'just another programming language' when the real challenge is to change your operations.</p>
-
-    <p>Failure to grasp the fact that Erlang/OTP is a C/S leads to teams adding to their operational cost (but not reducing operational support) or reimplementing their own hybrid Erlang/OTP C/S because that's what they would do if they were using an O/S language like Ruby or Java.</p>
-    </div>
-
-</div>
-
 <div id="home">
   <h1>Blog Posts</h1>
   <ul class="posts">
@@ -361,4 +376,5 @@ joxa-shell></pre>
       <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
     {% endfor %}
   </ul>
+</div>
 </div>
