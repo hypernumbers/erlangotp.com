@@ -13,7 +13,7 @@ title: Erlang/OTP - the open source Cluster System
   <div class='col-md-4'>
     <h4 class='text-center'>What is a Cluster System?</h4>
 
-    <p>An <strong>Operating System (O/S)</strong> is a set of libraries that abstract your hardware and which mean that your <strong><em>unwritten</em></strong> software can speak to persistent storay, networks, input/output devices, etc, etc.</p>
+    <p>An <strong>Operating System (O/S)</strong> is a set of libraries that abstract your hardware and which mean that your <strong><em>unwritten</em></strong> software can speak to persistent storage, networks, input/output devices, etc, etc.</p>
     <p>Similarly a <strong>Cluster System (C/S)</strong> is a set of libraries that run across many computers (with different O/Ses) which means that your <strong><em>unwritten</em></strong> software can scale horizontally, failover when a computer goes down, have hardware replaced under it ...comprende?</p>
   </div>
 
@@ -24,7 +24,7 @@ title: Erlang/OTP - the open source Cluster System
 
     <p>But, like in the early days of operating systems, most running C/S are in-house and custom-built in big companies like Facebook, Twitter etc.</p>
 
-    <p>Amazon provide a lot of components from which you can build your own proprietory C/S - things like AWS, S3, EBS, and many more.</p>
+    <p>Amazon provide a lot of components from which you can build your own proprietary C/S - things like AWS, S3, EBS, and many more.</p>
   </div>
 
   <div class='col-md-4'>
@@ -36,7 +36,7 @@ title: Erlang/OTP - the open source Cluster System
 
     <p>It is perfectly possible to use Erlang on a single computer (a cluster-of-one).</p>
 
-    <p>There are other languages you can use to programme an Erlang/OTP cluster, like <a href='http://elixir-lang.org/'>Elixir</a>, <a href='http://lfe.github.io/'>LFE</a> and <a href='http://joxa.org/'>Joxa</a>, as well an stage experiment in enclustering browers - <a href='http://luvv.ie/'>LuvvieScript</a>.</p>
+    <p>There are other languages you can use to programme an Erlang/OTP cluster, like <a href='http://elixir-lang.org/'>Elixir</a>, <a href='http://lfe.github.io/'>LFE</a> and <a href='http://joxa.org/'>Joxa</a>, as well an stage experiment in enclustering browsers - <a href='http://luvv.ie/'>LuvvieScript</a>.</p>
   </div>
 </div>
 <div class='clearfix'></div>
@@ -136,7 +136,7 @@ erl -sname bob -smp</pre>
       <h4 class='text-center'>Processes, Processes, Processes</h4>
       <p>The process tab in the observer shows all the running processes in the VM.</p>
     <p>It is the Erlang/OTP version of Unix's <code>ps aux</code> command.</p>
-    <p>Whereas in Unix each process Id (PID) is a single numeric value all the Erlang/OTP PID's are these stange three-parters &lt;0.50.0&gt;. The three parts describe which:</p>
+    <p>Whereas in Unix each process Id (PID) is a single numeric value all the Erlang/OTP PID's are these strange three-parters &lt;0.50.0&gt;. The three parts describe which:</p>
     <ul>
       <li>process it is on its home node</li>
       <li>VM it is on its home machine</li>
@@ -205,7 +205,7 @@ erl -sname bob -smp</pre>
 main(_Args) ->
     io:format("Hello World!~n").</pre>
 
-    <h4>But Erlang Is Wierd, Right?</h4>
+    <h4>But Erlang Is Weird, Right?</h4>
 
     <p><em>Whisper it not in Gath</em>, but it is a bit weird: if you don't know Prolog (and who does these days?). If you are used to Algol-style languages (like most programmers) its a bit scary. It feels like the difference between reading a book and reading an opticians chart. Here are some of the stranger bits.</p>
 
@@ -213,14 +213,14 @@ main(_Args) ->
 
     <p>Sometimes <code>=</code> means <kbd>let this thing equal that thing</kbd> and sometimes it means <kbd>check that this thing equals that thing</kbd>, and sometimes it means both.
       <pre>
-A = 1, % A doesnt have a value (it is unbound) so let A = 1
+A = 1, % A doesn't have a value (it is unbound) so let A = 1
 A = 2, % A does have a value (it is bound to 1) so confirm A = 1 or throw error</pre>
 
     <p>These two meanings can be combined into one equals sign:</p>
     <pre>
 A = 1,          % let A = 1 it is unbound
 {A, B} = {1, 2} % check that A = 1 and also let B = 2</pre>
-    <p>This is the basis of pattern matching - which is a key weird and adictive thing. You might know it from CoffeeScript where it is called destructuring.</p>
+    <p>This is the basis of pattern matching - which is a key weird and addictive thing. You might know it from CoffeeScript where it is called destructuring.</p>
 
     <h4>the strange case of <code>case</code></h4>
 
@@ -306,14 +306,14 @@ B = 2 AND
   end,
 RETURN {A, B} END</pre>
 
-    <p>And freaky list comprenensions look like an ascii art dance of death:</p>
+    <p>And freaky list comprehensions look like an ascii art dance of death:</p>
     <pre>
 L = [1, 2, 3]
 [X * 2 || X <- L]</pre>
     <p>This means take the list <code>L</code> get all the variables <code>X</code> in that list and multiply them by two. This returns:</p>
     <pre>
 [2, 4, 6]</pre>
-    <p>Muslims say that all human things are flawed, and only God is perfect. The great Muslim caligraphers would make a deliberate mistake in their work so God wouldn't think them too proud. Getting the final semicolon wrong in Erlang (which we all do) is the Erlang developer's acknowlegement of their own human frailty.</p>
+    <p>Muslims say that all human things are flawed, and only God is perfect. The great Muslim calligraphers would make a deliberate mistake in their work so God wouldn't think them too proud. Getting the final semicolon wrong in Erlang (which we all do) is the Erlang developer's acknowledgment of their own human frailty.</p>
     <p>That's all the weirdness, perfectly surmountable by a software developer of your calibre (schmooze, schmooze...)</p>
   </div>
   <div class='col-md-4'>
@@ -348,10 +348,10 @@ hello
 joxa-shell></pre>
     <h4 class='text-center'>And There's More...</h4>
     <p>For a very traditional Lisp try <a href='http://lfe.github.io'>LFE</a> (Lisp-Flavoured Erlang) by one of the inventors of Erlang. You want traditional Scheme, <a href='http://the-concurrent-schemer.github.io/scm-doc'>we got it</a> or you like Lua scripting, <a href='https://github.com/rvirding/luerl'>good to go</a>. Perhaps you are even one of those freaks who thinks Erlang is not-prolog-y enough, well here's prolog, <a href='https://github.com/rvirding/erlog'>step right up</a>.</p>
-    <h4 class='text-center'>But Some People Are Never Satisifed</h4>
+    <h4 class='text-center'>But Some People Are Never Satisfied</h4>
     <p><kbd>&lt;-- Insert Your Name Here --&gt;</kbd> has written their own language <kbd>&lt;-- Your Cool 4 Letter Domain --&gt;</kbd> inspired by <kbd>&lt;-- What Tickles Your Fancy--&gt;</kbd>.</p>
-<p>Erlang has a hidden gem called <a href='http://www.it.uu.se/research/group/hipe/cerl/'>Core Erlang</a> which is a verbose but very simple human-readable language - designed for humans to read (but not optimised for them to write).</p>
-<p>It is also designed to make it super-easy to write your own compile-to-Core-Erlang-source language - and paticularly to iterate on the design.</p>
+<p>Erlang has a hidden gem called <a href='http://www.it.uu.se/research/group/hipe/cerl/'>Core Erlang</a> which is a verbose but very simple human-readable language - designed for humans to read (but not optimized for them to write).</p>
+<p>It is also designed to make it super-easy to write your own compile-to-Core-Erlang-source language - and particularly to iterate on the design.</p>
 <p><kbd>&lt;-- Insert Your Name Here --&gt;</kbd> used Core Erlang to develop and prototype their <kbd><-- Whatever Tickles Your Fancy --></kbd>-flavoured <kbd>&lt;-- Your Cool 4 Letter Domain-- &gt;</kbd> language giving it all the goodness of Erlang/OTP.</p>
 <div style='border:dashed;border-color:red;padding:20px;'>
   <small>
